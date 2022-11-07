@@ -1,0 +1,24 @@
+operatorset MySet {
+}
+
+type MyType [0.0,1.0;100] {
+  L xfl.triangle(0.0,0.25,0.5);
+  M xfl.triangle(0.1,0.5,0.9);
+  H xfl.triangle(0.5,0.75,1.0);
+}
+
+rulebase MyRules (MyType C, MyType R : MyType S) using MySet {
+  if(C == L & R == L) -> S = M;
+  if(C == L & R == M) -> S = L;
+  if(C == L & R == H) -> S = L;
+  if(C == M & R == L) -> S = H;
+  if(C == M & R == M) -> S = M;
+  if(C == M & R == H) -> S = L;
+  if(C == H & R == L) -> S = H;
+  if(C == H & R == M) -> S = H;
+  if(C == H & R == H) -> S = M;
+}
+
+system (MyType Credit, MyType Rate : MyType Security) {
+  MyRules(Credit, Rate : Security);
+ }

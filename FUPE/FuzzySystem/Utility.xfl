@@ -1,0 +1,98 @@
+operatorset MySet {
+}
+
+type MyType [0.0,1.0;100] {
+  L xfl.triangle(0.0,0.25,0.5);
+  M xfl.triangle(0.1,0.5,0.9);
+  H xfl.triangle(0.5,0.75,1.0);
+}
+
+rulebase MyRules (MyType C, MyType R, MyType B, MyType Len : MyType U) using MySet {
+    if(C == L & R == L & B == L & Len == L) -> U = L;
+  if(C == L & R == M & B == L & Len == L) -> U = L;
+  if(C == L & R == H & B == L & Len == L) -> U = M;
+  if(C == M & R == L & B == L & Len == L) -> U = L;
+  if(C == M & R == M & B == L & Len == L) -> U = M;
+  if(C == M & R == H & B == L & Len == L) -> U = M;
+  if(C == H & R == L & B == L & Len == L) -> U = M;
+  if(C == H & R == M & B == L & Len == L) -> U = M;
+  if(C == H & R == H & B == L & Len == L) -> U = H;
+  if(C == L & R == L & B == L & Len == M) -> U = L;
+  if(C == L & R == M & B == L & Len == M) -> U = L;
+  if(C == L & R == H & B == L & Len == M) -> U = L;
+  if(C == M & R == L & B == L & Len == M) -> U = L;
+  if(C == M & R == M & B == L & Len == M) -> U = L;
+  if(C == M & R == H & B == L & Len == M) -> U = M;
+  if(C == H & R == L & B == L & Len == M) -> U = L;
+  if(C == H & R == M & B == L & Len == M) -> U = M;
+  if(C == H & R == H & B == L & Len == M) -> U = M;
+  if(C == L & R == L & B == L & Len == H) -> U = L;
+  if(C == L & R == M & B == L & Len == H) -> U = L;
+  if(C == L & R == H & B == L & Len == H) -> U = L;
+  if(C == M & R == L & B == L & Len == H) -> U = L;
+  if(C == M & R == M & B == L & Len == H) -> U = L;
+  if(C == M & R == H & B == L & Len == H) -> U = L;
+  if(C == H & R == L & B == L & Len == H) -> U = L;
+  if(C == H & R == M & B == L & Len == H) -> U = L;
+  if(C == H & R == H & B == L & Len == H) -> U = M;
+  
+  if(C == L & R == L & B == M & Len == L) -> U = L;
+  if(C == L & R == M & B == M & Len == L) -> U = M;
+  if(C == L & R == H & B == M & Len == L) -> U = H;
+  if(C == M & R == L & B == M & Len == L) -> U = M;
+  if(C == M & R == M & B == M & Len == L) -> U = H;
+  if(C == M & R == H & B == M & Len == L) -> U = H;
+  if(C == H & R == L & B == M & Len == L) -> U = H;
+  if(C == H & R == M & B == M & Len == L) -> U = H;
+  if(C == H & R == H & B == M & Len == L) -> U = H;
+  if(C == L & R == L & B == M & Len == M) -> U = L;
+  if(C == L & R == M & B == M & Len == M) -> U = L;
+  if(C == L & R == H & B == M & Len == M) -> U = M;
+  if(C == M & R == L & B == M & Len == M) -> U = L;
+  if(C == M & R == M & B == M & Len == M) -> U = M;
+  if(C == M & R == H & B == M & Len == M) -> U = H;
+  if(C == H & R == L & B == M & Len == M) -> U = M;
+  if(C == H & R == M & B == M & Len == M) -> U = H;
+  if(C == H & R == H & B == M & Len == M) -> U = H;
+  if(C == L & R == L & B == M & Len == H) -> U = L;
+  if(C == L & R == M & B == M & Len == H) -> U = L;
+  if(C == L & R == H & B == M & Len == H) -> U = L;
+  if(C == M & R == L & B == M & Len == H) -> U = L;
+  if(C == M & R == M & B == M & Len == H) -> U = L;
+  if(C == M & R == H & B == M & Len == H) -> U = M;
+  if(C == H & R == L & B == M & Len == H) -> U = L;
+  if(C == H & R == M & B == M & Len == H) -> U = M;
+  if(C == H & R == H & B == M & Len == H) -> U = H;
+  
+  if(C == L & R == L & B == H & Len == L) -> U = M;
+  if(C == L & R == M & B == H & Len == L) -> U = H;
+  if(C == L & R == H & B == H & Len == L) -> U = H;
+  if(C == M & R == L & B == H & Len == L) -> U = H;
+  if(C == M & R == M & B == H & Len == L) -> U = H;
+  if(C == M & R == H & B == H & Len == L) -> U = H;
+  if(C == H & R == L & B == H & Len == L) -> U = H;
+  if(C == H & R == M & B == H & Len == L) -> U = H;
+  if(C == H & R == H & B == H & Len == L) -> U = H;
+  if(C == L & R == L & B == H & Len == M) -> U = L;
+  if(C == L & R == M & B == H & Len == M) -> U = M;
+  if(C == L & R == H & B == H & Len == M) -> U = M;
+  if(C == M & R == L & B == H & Len == M) -> U = M;
+  if(C == M & R == M & B == H & Len == M) -> U = M;
+  if(C == M & R == H & B == H & Len == M) -> U = H;
+  if(C == H & R == L & B == H & Len == M) -> U = M;
+  if(C == H & R == M & B == H & Len == M) -> U = H;
+  if(C == H & R == H & B == H & Len == M) -> U = H;
+  if(C == L & R == L & B == H & Len == H) -> U = L;
+  if(C == L & R == M & B == H & Len == H) -> U = L;
+  if(C == L & R == H & B == H & Len == H) -> U = M;
+  if(C == M & R == L & B == H & Len == H) -> U = L;
+  if(C == M & R == M & B == H & Len == H) -> U = M;
+  if(C == M & R == H & B == H & Len == H) -> U = M;
+  if(C == H & R == L & B == H & Len == H) -> U = M;
+  if(C == H & R == M & B == H & Len == H) -> U = M;
+  if(C == H & R == H & B == H & Len == H) -> U = H;
+}
+
+system (MyType Credit, MyType Rate, MyType Bandwidth, MyType TaskLength : MyType Utility) {
+  MyRules(Credit, Rate, Bandwidth, TaskLength : Utility);
+ }
